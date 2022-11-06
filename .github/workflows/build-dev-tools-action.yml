@@ -28,20 +28,27 @@ jobs:
       # Runs a single command using the runners shell
       # - name: Run a one-line script
       #  run: echo Hello, world!
+      - name: test githubpath
+        run: |
+          echo "/usr/path/whatever" >> $GITHUB_PATH
+          echo $PATH
       
       - name: build
         run: |
-          git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
-          export PATH=$(pwd)/depot_tools:$PATH   # export "PATH=$PATH:$(pwd)/depot_tools"
-          ls "$(pwd)/depot_tools"
-          mkdir devtools
-          cd devtools
-          echo "$PATH"
-          which fetch
-         # fetch devtools-frontend
+          echo $PATH
+          echo "/usr/path/whatever2" >> $GITHUB_PATH
+          #git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
+          #export PATH=$(pwd)/depot_tools:$PATH   # export "PATH=$PATH:$(pwd)/depot_tools"
+          #ls "$(pwd)/depot_tools"
+          #mkdir devtools
+          #cd devtools
+          #echo $PATH
+          #which fetch
+          # fetch devtools-frontend
       - name: test step
         run: |
           ls
+          echo $PATH
 
       # Runs a set of commands using the runners shell
       #- name: env prepare
