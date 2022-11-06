@@ -33,9 +33,10 @@ jobs:
       - name: env prepare
         run: |
           git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
-          ls
-          echo $(pwd)
+          export PATH=$(pwd)/depot_tools:$PATH
           echo $PATH
+          echo $(pwd)
+          which fetch
       - name: fetch devtools-frontend
         run: fetch devtools-frontend
       - name: build
