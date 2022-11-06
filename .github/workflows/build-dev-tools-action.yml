@@ -53,13 +53,11 @@ jobs:
           echo $PATH
           echo "$(pwd)/depot_tools" >> $GITHUB_PATH
           echo $(pwd)
-      - name: Checking out source
+      - name: Build
         run: |
           mkdir devtools
           cd devtools
           fetch devtools-frontend
-      - name: Build
-        run: |
           cd devtools-frontend
           gn gen out/Default
           autoninja -C out/Default
