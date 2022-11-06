@@ -32,7 +32,7 @@ jobs:
       - name: build
         run: |
           git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
-          export "PATH=$PATH:$(pwd)/depot_tools"
+          export PATH=$(pwd)/depot_tools:$PATH   # export "PATH=$PATH:$(pwd)/depot_tools"
           ls "$(pwd)/depot_tools"
           mkdir devtools
           cd devtools
