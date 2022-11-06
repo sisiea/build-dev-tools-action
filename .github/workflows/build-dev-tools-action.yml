@@ -41,7 +41,7 @@ jobs:
          # fetch devtools-frontend
       - name: test step
         run: |
-          which fetch
+          ls
 
       # Runs a set of commands using the runners shell
       #- name: env prepare
