@@ -36,5 +36,6 @@ jobs:
           echo $(pwd)
           echo $PATH
       - name: fetch devtools-frontend
-        run: devtools-frontend
+        run: fetch devtools-frontend
       - name: build
+        run: echo "build"
