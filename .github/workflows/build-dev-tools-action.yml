@@ -37,6 +37,7 @@ jobs:
           mkdir devtools
           cd devtools
           echo "$PATH"
+          which fetch
          # fetch devtools-frontend
       - name: test step
         run: |
