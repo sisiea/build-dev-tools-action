@@ -61,3 +61,8 @@ jobs:
           cd devtools-frontend
           gn gen out/Default
           autoninja -C out/Default
+      - name: upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: chrome-devtools-frontend
+          path: devtools/devtools-frontend/out/Default/gen/front_end
