@@ -43,10 +43,10 @@ jobs:
           cd devtools
           fetch devtools-frontend
           cd devtools-frontend
-          gn gen out/Default
-          autoninja -C out/Default
+          gn gen out/fast-build --args='devtools_skip_typecheck=true'
+          autoninja -C out/fast-build
       - name: upload artifact
         uses: actions/upload-artifact@v3
         with:
-          name: chrome-devtools-frontend
-          path: devtools/devtools-frontend/out/Default/gen/front_end
+          name: chrome-devtools-frontend-fast-build
+          path: devtools/devtools-frontend/out/fast-build/gen/front_end
