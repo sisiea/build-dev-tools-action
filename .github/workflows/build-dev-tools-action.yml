@@ -58,4 +58,6 @@ jobs:
           which fetch
           fetch devtools-frontend
       - name: build
-        run: echo "build"
+        run: |
+          ls
+          echo "build"
