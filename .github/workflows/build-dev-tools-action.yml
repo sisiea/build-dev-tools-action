@@ -28,15 +28,10 @@ jobs:
       # Runs a single command using the runners shell
       # - name: Run a one-line script
       #  run: echo Hello, world!
-      - name: test githubpath
-        run: |
-          echo "/usr/path/whatever" >> $GITHUB_PATH
-          echo $PATH
       
-      - name: build
-        run: |
-          echo $PATH
-          echo "/usr/path/whatever2" >> $GITHUB_PATH
+     # - name: build
+       # run: |
+          #echo "/usr/path/whatever2" >> $GITHUB_PATH
           #git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
           #export PATH=$(pwd)/depot_tools:$PATH   # export "PATH=$PATH:$(pwd)/depot_tools"
           #ls "$(pwd)/depot_tools"
@@ -45,20 +40,22 @@ jobs:
           #echo $PATH
           #which fetch
           # fetch devtools-frontend
-      - name: test step
-        run: |
-          ls
-          echo $PATH
+      #- name: test step
+        #run: |
+          #ls
+          #echo $PATH
 
       # Runs a set of commands using the runners shell
-      #- name: env prepare
-      #  run: |
-      #    git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
-      #    export PATH=$(pwd)/depot_tools:$PATH
-      #    echo $PATH
-      #    echo $(pwd)
-      #    which fetch
-     # - name: fetch devtools-frontend
-     #   run: fetch devtools-frontend
-     # - name: build
-     #   run: echo "build"
+      - name: env prepare
+        run: |
+          git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
+          export PATH=$(pwd)/depot_tools:$PATH
+          echo $PATH
+          echo "$(pwd)/depot_tools" >> $GITHUB_PATH
+          echo $(pwd)
+      - name: fetch devtools-frontend
+        run: |
+          which fetch
+          fetch devtools-frontend
+      - name: build
+        run: echo "build"
